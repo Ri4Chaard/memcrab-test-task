@@ -1,7 +1,6 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  /* background: ; */
 }
 
 table {
@@ -9,8 +8,19 @@ table {
   width: 100%;
 }
 
+thead,
+tr {
+  display: flex;
+  width: 100%;
+}
+
 td,
 th {
+  flex: 1 1 0%;
+  min-width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-top: 1px solid #ccc;
   padding: 8px;
   text-align: center;

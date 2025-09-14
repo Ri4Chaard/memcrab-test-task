@@ -16,12 +16,17 @@ export const TableCell: React.FC<Props> = ({
   percentage,
   heatmap,
 }) => {
-  const { incrementCell } = useTable();
+  const { highlightedIds, incrementCell, clearHighlight, highlightNearest } =
+    useTable();
+
+  const isHighlighted = highlightedIds.includes(cell.id);
 
   return (
     <td
-      className={styles.cell}
+      className={`${styles.cell} ${isHighlighted ? styles.highlighted : null}`}
       onClick={() => incrementCell(cell.id, cell.id)}
+      onMouseEnter={() => highlightNearest(cell)}
+      onMouseLeave={clearHighlight}
       style={
         showPercentage
           ? { background: `rgba(0, 150, 255, ${heatmap / 100})` }

@@ -20,6 +20,7 @@ function generateMatrixFn(M: number, N: number): Cell[][] {
 export const TableProvider = ({ children }: { children: ReactNode }) => {
   const [matrix, setMatrix] = useState<Cell[][]>([]);
   const [x, setX] = useState<number>(5);
+  const [highlightedIds, setHighlightedIds] = useState<number[]>([]);
 
   const generateMatrix = (M: number, N: number, X: number) => {
     setMatrix(generateMatrixFn(M, N));
@@ -46,16 +47,35 @@ export const TableProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+  const highlightNearest = (cell: Cell) => {
+    const allCells = matrix.flat();
+    const sorted = allCells
+      .filter((c) => c.id !== cell.id)
+      .map((c) => ({ id: c.id, diff: Math.abs(c.amount - cell.amount) }))
+      .sort((a, b) => a.diff - b.diff)
+      .slice(0, x)
+      .map((c) => c.id);
+
+    setHighlightedIds(sorted);
+  };
+
+  const clearHighlight = () => {
+    setHighlightedIds([]);
+  };
+
   return (
     <TableContext
       value={{
         matrix,
         x,
+        highlightedIds,
         generateMatrix,
         incrementCell,
         removeRow,
         addRow,
         setX,
+        highlightNearest,
+        clearHighlight,
       }}
     >
       {children}

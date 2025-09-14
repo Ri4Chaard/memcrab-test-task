@@ -4,6 +4,7 @@ import type { Cell } from "../types/table";
 interface TableState {
   matrix: Cell[][];
   x: number;
+  highlightedIds: number[];
 }
 
 interface TableContextValue extends TableState {
@@ -12,6 +13,8 @@ interface TableContextValue extends TableState {
   removeRow: (rowIndex: number) => void;
   addRow: () => void;
   setX: (x: number) => void;
+  highlightNearest: (cell: Cell) => void;
+  clearHighlight: () => void;
 }
 
 const TableContext = createContext<TableContextValue | undefined>(undefined);
