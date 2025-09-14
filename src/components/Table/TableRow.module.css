@@ -1,0 +1,26 @@
+.firstCell {
+  position: sticky;
+  left: 0;
+}
+.firstCellBg {
+  position: absolute;
+  inset: 0;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background-color: #f5f5f5;
+  z-index: -1;
+}
+
+.sumCell {
+  position: sticky;
+  right: 0;
+}
+
+.sumCellBg {
+  position: absolute;
+  inset: 0;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background-color: #f5f5f5;
+  z-index: -1;
+}

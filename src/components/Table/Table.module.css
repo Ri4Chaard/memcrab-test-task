@@ -1,0 +1,14 @@
+.tableContainer {
+  margin-top: 50px;
+  width: 100%;
+  overflow: auto;
+  position: relative;
+}
+.tableHead {
+  background-color: #f3f3f3;
+}
+.addButtonContainer {
+  display: flex;
+  margin-top: 20px;
+  justify-content: end;
+}

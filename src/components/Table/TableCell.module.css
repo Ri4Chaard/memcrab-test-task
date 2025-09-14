@@ -1,0 +1,7 @@
+.cell {
+  transition: background-color 100ms ease-in-out;
+  cursor: pointer;
+}
+.cell:hover {
+  background-color: #ccc;
+}

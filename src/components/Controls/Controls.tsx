@@ -11,7 +11,9 @@ export const Controls: React.FC = () => {
     inputX: 0,
   });
 
-  const table = useTable();
+  const { matrix, generateMatrix } = useTable();
+
+  console.log(matrix);
 
   const maxXValue =
     userInput.inputM > 0 && userInput.inputN > 0
@@ -20,7 +22,7 @@ export const Controls: React.FC = () => {
 
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    table?.generateMatrix(userInput.inputM, userInput.inputN, userInput.inputX);
+    generateMatrix(userInput.inputM, userInput.inputN, userInput.inputX);
   };
 
   return (

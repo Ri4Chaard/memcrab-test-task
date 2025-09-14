@@ -18,6 +18,9 @@ const TableContext = createContext<TableContextValue | undefined>(undefined);
 
 const useTable = () => {
   const ctx = useContext(TableContext);
+  if (!ctx) {
+    throw new Error("TableCell must be used within a TableProvider");
+  }
   return ctx;
 };
 

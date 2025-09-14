@@ -22,18 +22,14 @@ export const TableProvider = ({ children }: { children: ReactNode }) => {
   const [x, setX] = useState<number>(5);
 
   const generateMatrix = (M: number, N: number, X: number) => {
-    console.log("im here");
-
     setMatrix(generateMatrixFn(M, N));
     setX(X);
   };
 
-  const incrementCell = (row: number, col: number) => {
+  const incrementCell = (cellId: number) => {
     setMatrix((prev) =>
-      prev.map((r, ri) =>
-        r.map((c, ci) =>
-          ri === row && ci === col ? { ...c, amount: c.amount + 1 } : c
-        )
+      prev.map((r) =>
+        r.map((c) => (c.id === cellId ? { ...c, amount: c.amount + 1 } : c))
       )
     );
   };
