@@ -9,7 +9,7 @@ interface TableState {
 
 interface TableContextValue extends TableState {
   generateMatrix: (M: number, N: number, X: number) => void;
-  incrementCell: (row: number, col: number) => void;
+  incrementCell: (cellId: number) => void;
   removeRow: (rowIndex: number) => void;
   addRow: () => void;
   setX: (x: number) => void;

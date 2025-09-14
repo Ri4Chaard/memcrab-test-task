@@ -1,21 +1,7 @@
 import { useState, type ReactNode } from "react";
 import type { Cell } from "../types/table";
 import { TableContext } from "../context/TableContext";
-
-let globalId = 1;
-
-function createRandomCell(): Cell {
-  return {
-    id: globalId++,
-    amount: Math.floor(100 + Math.random() * 900),
-  };
-}
-
-function generateMatrixFn(M: number, N: number): Cell[][] {
-  return Array.from({ length: M }, () =>
-    Array.from({ length: N }, () => createRandomCell())
-  );
-}
+import { createRandomCell, generateMatrixFn } from "../utils/matrix";
 
 export const TableProvider = ({ children }: { children: ReactNode }) => {
   const [matrix, setMatrix] = useState<Cell[][]>([]);

@@ -23,15 +23,13 @@ export const TableCell: React.FC<Props> = ({
 
   return (
     <td
-      className={`${styles.cell} ${isHighlighted ? styles.highlighted : null}`}
-      onClick={() => incrementCell(cell.id, cell.id)}
+      className={`${styles.cell} ${
+        showPercentage ? styles.withHeatmap : null
+      } ${isHighlighted ? styles.highlighted : null}`}
+      onClick={() => incrementCell(cell.id)}
       onMouseEnter={() => highlightNearest(cell)}
       onMouseLeave={clearHighlight}
-      style={
-        showPercentage
-          ? { background: `rgba(0, 150, 255, ${heatmap / 100})` }
-          : {}
-      }
+      style={{ "--heatmap": `${heatmap / 100}` } as React.CSSProperties}
     >
       {showPercentage ? `${percentage}%` : cell.amount}
     </td>

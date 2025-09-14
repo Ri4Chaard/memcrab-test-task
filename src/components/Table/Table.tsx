@@ -20,7 +20,7 @@ export const Table: React.FC = () => {
   return (
     <>
       <div className={styles.tableContainer}>
-        <table className={styles.table}>
+        <table>
           <thead className={styles.tableHead}>
             <td className={tableRowStyles.firstCell}>
               M\N

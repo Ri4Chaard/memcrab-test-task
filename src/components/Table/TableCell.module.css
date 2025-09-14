@@ -6,6 +6,11 @@
   background-color: #ccc;
 }
 
+.withHeatmap {
+  background-color: rgba(0, 150, 255, var(--heatmap, 0));
+  transition: background-color 0.2s ease;
+}
+
 .highlighted {
   background-color: orange;
   transition: background-color 200ms ease-in-out;
